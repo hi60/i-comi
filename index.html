@@ -1,12 +1,11 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ja">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>アイコミ | Just another WordPress site</title>
     <link rel="stylesheet" href="css/reset.css">
-    <link rel="stylesheet" href="css/base.css">
     <link rel="stylesheet" href="./dist/css/app.css">
 </head>
 <body>
@@ -50,6 +49,13 @@
                         </a>
                     </li>
                 </ul>
+                <div class="sp__menu">
+                    <div class="sp__menu__box">
+                        <span class="menu__line"></span>
+                        <span class="menu__line"></span>
+                        <span class="menu__line"></span>
+                    </div>
+                </div>
             </div>
             <main>
                 <section class="contents">
@@ -70,34 +76,55 @@
                                 <p class="entry__another">就職･転職支援サービスをご希望の方はこちらからご応募下さい</p>
                             </div>
                             <div class="guide">
-                                <div class="guide__container">
-                                    <p>会場案内</p>
-                                    <p>Venue Guide</p>
-                                </div>
+                                <div class="guide__mask"></div>
+                                <a href="">
+                                    <div class="contents__box">
+                                        <img src="img/guide-logo.png" alt="">
+                                        <p class="contents__box__title">会場案内</p>
+                                        <p class="contents__box__subtitle">Venue Guide</p>
+                                    </div>
+                                </a>
                             </div>
                             <div class="company">
-                                <div class="company__container">
-                                    <p>会社概要</p>
-                                    <p>Company</p>
-                                </div>
+                                <div class="company__mask"></div>
+                                <a href="">
+                                    <div class="contents__box">
+                                        <img src="img/company-logo.png" alt="">
+                                        <p class="contents__box__title">会社概要</p>
+                                        <p class="contents__box__subtitle">Company</p>
+                                    </div>
+                                </a>
                             </div>
                             <div class="reason">
-                                <div class="reason__container">
-                                    <p>選ばれる理由</p>
-                                    <p>Reason</p>
-                                </div>
+                                <div class="reason__mask"></div>
+                                <a href="">
+                                    <div class="contents__box">
+                                        <img src="img/reason-logo.png" alt="">
+                                        <p class="contents__box__title">選ばれる理由</p>
+                                        <p class="contents__box__subtitle">Reason</p>
+                                    </div>
+                                </a>
                             </div>
                             <div class="contact">
-                                <div class="contact__container">
-                                    <p>お問い合わせ</p>
-                                    <p>Contact</p>
+                                <div class="contact__mask">
+                                    <a href="">
+                                        <div class="contents__box">
+                                            <img src="img/contact-logo.png" alt="">
+                                            <p class="contents__box__title">お問い合わせ</p>
+                                            <p class="contents__box__subtitle">Contact</p>
+                                        </div>
+                                    </a>
                                 </div>
                             </div>
                             <div class="business">
-                                <div class="business__container">
-                                    <p>事業内容</p>
-                                    <p>Business</p>
-                                </div>
+                                <div class="business__mask"></div>
+                                <a href="">
+                                    <div class="contents__box">
+                                        <img src="img/business-logo.png" alt="">
+                                        <p class="contents__box__title">事業内容</p>
+                                        <p class="contents__box__subtitle">Business</p>
+                                    </div>
+                                </a>
                             </div>
                         </div>
                     </div>
@@ -105,19 +132,33 @@
                 <section class="intro">
                     <p class="intro__title">職種のご紹介</p>
                     <ul class="intro__works" >
-                        <li class="intro__works__retailer">
-                            <p>量販店</p>
+                        <li>
+                            <p class="works__field">量販店</p>
+                            <p class="works__text">での就職・転職を目指す方</p>
+                            <img src="img/intro-icon1.png" alt="">
                         </li>
-                        <li class="intro__works__promotion"></li>
-                        <li class="intro__works__callcenter"></li>
-                        <li class="intro__works__companion"></li>
+                        <li>
+                            <p class="works__field">販売促進</p>
+                            <p class="works__text">での就職・転職を目指す方</p>
+                            <img src="img/intro-icon2.png" alt="">
+                        </li>
+                        <li>
+                            <p class="works__field">コールセンター</p>
+                            <p class="works__text">での就職・転職を目指す方</p>
+                            <img src="img/intro-icon3.png" alt="">
+                        </li>
+                        <li>
+                            <p class="works__field">コンパニオン</p>
+                            <p class="works__text">での就職・転職を目指す方</p>
+                            <img src="img/intro-icon4.png" alt="">
+                        </li>
                     </ul>
                 </section>
                 <section class="news">
                     <p class="news__title" >お知らせ</p>
                     <div class="news__detail">
                         <p>2016.5.5
-                            <span>ホーム</span>
+                            <span class="news__detail__margin">ホーム</span>
                         </p>
                     </div>
                 </section>
@@ -125,20 +166,39 @@
         </div>
     </div>
     <footer>
-        <div class="footer__img">
-            <img src="img/foot-photo.png" alt="">
-        </div>
+        <div class="footer__img"></div>
         <ul class="footer__navigation">
-            <li>ホーム</li>
-            <li>登録会に応募</li>
-            <li>会社概要</li>
-            <li>会社案内</li>
-            <li>選ばれる理由</li>
-            <li>お問い合わせ</li>
+            <li>
+                <a href="">ホーム</a>
+            </li>
+            <li>
+                <a href="">登録会に応募</a>
+            </li>
+            <li>
+                <a href="">会社概要</a>
+            </li>
+            <li>
+                <a href="">会社案内</a>
+            </li>
+            <li>
+                <a href="">選ばれる理由</a>
+            </li>
+            <li>
+                <a href="">お問い合わせ</a>
+            </li>
         </ul>
         <div class="copyright">
             <p class="copyright__text" >Copyright © 株式会社アイコミ, INC. All rights Reserved.</p>
         </div>
+        <div class="sp__entry">
+            <div class="sp__entry__button">
+                <a href="">
+                    <p class="sp__entry__button__text">登録会に応募</p>
+                </a>
+            </div>
+        </div>
     </footer>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script src="js/script.js"></script>
 </body>
 </html>

@@ -1,5 +1,11 @@
 @import './variable';
 
+@mixin mq() {
+    @media screen and (max-width:480px) {
+        @content;
+    }
+}
+
 body {
     background-image: url('../../img/icomme-bg.png');
     background-repeat: repeat-x;
@@ -8,6 +14,10 @@ body {
     .wrapper {
         margin: 0 auto;
         width: 1105px;
+
+        @include mq() {
+            width: 100%;
+        }
     
         .page__container {
             display: flex;
@@ -15,6 +25,12 @@ body {
             align-items: flex-start;
             margin: 20px 0 0;
             width: 100%;
+
+            @include mq() {
+                justify-content: center;
+                flex-flow: column;
+                margin: 0 auto;
+            }
     
             .side {
                 display: flex;
@@ -23,8 +39,28 @@ body {
                 width: 206px;
                 margin-top: -20px;
 
+                @include mq() {
+                    width: 100%;
+                    height: 70px;
+                    justify-content: space-between;
+                    align-items: flex-start;
+                    flex-flow: row;
+                    margin: 0 auto;
+                    position: relative;
+                };
+
                 .company__logo {
                     padding: 7% 15%;
+
+                    @include mq() {
+                        margin: 2% 0 0 2%;
+                        padding: 0;
+
+                        img {
+                            max-width: none;
+                            width: 50px;
+                        }
+                    }
                 }
 
                 &__entry {
@@ -34,6 +70,10 @@ body {
                     border-radius: 5px;
                     box-shadow: 3px 3px $brandColor;
                     margin-bottom: 3px;
+
+                    @include mq() {
+                        display: none;
+                    }
 
                     &__text {
                         display: block;
@@ -67,19 +107,102 @@ body {
                         text-align: center;
                         color: #fff;
                         padding-top: 6px;
+                        
                     }
 
                 }
                 
                 &__menu {
+                    @include mq() {
+                        display: none;
+                        position: absolute;
+                        top: 70px;
+                        width: 100%;
+                    }
+
                     & > li {
                         width: 205px;
                         height: 75px;
                         background: linear-gradient(#fff, #eeeeef);
-                    }
 
-                    &__text {
+                        @include mq() {
+                            width: 100%;
+                            height: 44px;
+                        }
                         
+                        .side__menu__title {
+                            font-size: 19px;
+                            line-height: 1.5em;
+                            text-align: center;
+                            color: #666;
+                            padding-top: 18px;
+                            position: relative;
+
+                            @include mq() {
+                                padding: 10px;
+                                font-size: 16px;
+                            }
+
+                            &:after {
+                                content: '';
+                                border: 6px solid transparent;
+                                border-left-color: #666;
+                                position: absolute;
+                                top: 50%;
+                                right: 12px;
+
+                                @include mq() {
+                                    top: 16px;
+                                }
+                            }
+                        }
+
+                        .side__menu__explain {
+                            font-size: 11px;
+                            text-align: center;
+                            color: #999966;
+                            margin-top: 4px;
+
+                            @include mq() {
+                                display: none;
+                            }
+                        }
+                    }
+                }
+
+                @include mq(){
+                    .sp__menu {
+                        width: 38px;
+                        height: 28px;
+                        margin: 22px 20px;
+                        padding: 7px 10px;
+                        background-color: #DC76AB;
+                        border-radius: 2px;
+                        box-sizing: border-box;
+
+                        &__box {
+                            position: relative;
+
+                            .menu__line {
+                                position: absolute;
+                                width: 100%;
+                                height: 2px;
+                                border-radius: 1px;
+                                background-color: #f5f5f5;
+
+                                &:first-child {
+                                    top: 2px
+                                }
+
+                                &:nth-child(2) {
+                                    top: 6px;
+                                }
+
+                                &:nth-child(3) {
+                                    top: 10px;
+                                }
+                            }
+                        }
                     }
                 }
             }
@@ -91,17 +214,31 @@ body {
                 flex-flow: column;
                 margin-left: 50px;
 
+                @include mq() {
+                    width: 100%;
+                    margin: auto;
+                }
+
                 .contents {
                     display: flex;
                     justify-content: center;
                     align-items: center;
                     flex-flow: column;
+
+                    @include mq() {
+                        max-width: 100%;
+                    }
                     
                     &__link {
                         display: flex;
                         justify-content: center;
                         align-items: center;
                         flex-flow: column;
+
+                        @include mq() {
+                            justify-content: space-between;
+                            padding: 0 2%;
+                        }
     
                         &__container {
                             display: flex;
@@ -123,6 +260,11 @@ body {
                                 align-items: center;
                                 flex-flow: column;
                                 margin-right: 6px;
+
+                                @include mq() {
+                                    margin-right: 0;
+                                    width: 100%
+                                }
 
                                 &__message {
                                     color: #fff;
@@ -173,11 +315,46 @@ body {
                                 border: 5px solid $guideColor;
                                 box-sizing: border-box;
                                 margin-right: 6px;
+                                position: relative;
 
-                                &__container {
+                                @include mq() {
+                                    margin: 6px auto 0 0;
+                                    width: 49%;
+                                }
+
+                                &__mask {
                                     background-color: $guideColor;
                                     opacity: 0.75;
+                                    width: 100%;
+                                    height: 100%;
+                                    position: absolute;
+                                }
+
+                                .contents__box {
+                                    color: #fff;
+                                    text-align: center;
+                                    line-height: 25px;
                                     height: 225px;
+                                    position: relative;
+
+                                    &__title {
+                                        font-size: 22px;
+                                        padding-top: 7px;
+                                        position: relative;
+
+                                        &:after {
+                                            content: '';
+                                            border: 6px solid transparent;
+                                            border-left-color: #fff;
+                                            position: absolute;
+                                            top: 14px;
+                                            right: 0;
+                                        }
+                                    }
+
+                                    &__subtitle {
+                                        font-size: 16px;
+                                    }
                                 }
                             }
 
@@ -187,11 +364,46 @@ body {
                                 background-repeat: no-repeat;
                                 border: 5px solid $companyColor;
                                 box-sizing: border-box;
+                                position: relative;
 
-                                &__container {
+                                @include mq() {
+                                    margin-top: 6px;
+                                    width: 49%;
+                                }
+
+                                &__mask {
                                     background-color: $companyColor;
                                     opacity: 0.75;
+                                    width: 100%;
+                                    height: 100%;
+                                    position: absolute;
+                                }
+
+                                .contents__box {
+                                    color: #fff;
+                                    text-align: center;
+                                    line-height: 25px;
                                     height: 225px;
+                                    position: relative;
+
+                                    &__title {
+                                        font-size: 22px;
+                                        padding-top: 7px;
+                                        position: relative;
+                                        
+                                        &:after {
+                                            content: '';
+                                            border: 6px solid transparent;
+                                            border-left-color: #fff;
+                                            position: absolute;
+                                            top: 14px;
+                                            right: 0;
+                                        }
+                                    }
+
+                                    &__subtitle {
+                                        font-size: 16px;
+                                    }
                                 }
                             }
 
@@ -203,11 +415,46 @@ body {
                                 border: 5px solid $reasonColor;
                                 box-sizing: border-box;
                                 margin: 6px 6px 0 0;
+                                position: relative;
 
-                                &__container {
-                                    height: 225px;
+                                @include mq() {
+                                    margin: 6px auto 0 0;
+                                    width: 49%;
+                                }
+
+                                &__mask {
                                     background-color: $reasonColor;
                                     opacity: 0.75;
+                                    width: 100%;
+                                    height: 100%;
+                                    position: absolute;
+                                }
+
+                                .contents__box {
+                                    color: #fff;
+                                    text-align: center;
+                                    line-height: 25px;
+                                    height: 225px;
+                                    position: relative;
+
+                                    &__title {
+                                        font-size: 22px;
+                                        padding-top: 7px;
+                                        position: relative;
+
+                                        &:after {
+                                            content: '';
+                                            border: 6px solid transparent;
+                                            border-left-color: #fff;
+                                            position: absolute;
+                                            top: 14px;
+                                            right: 0;
+                                        }
+                                    }
+
+                                    &__subtitle {
+                                        font-size: 16px;
+                                    }
                                 }
                             }
 
@@ -218,11 +465,46 @@ body {
                                 border: 5px solid $contactColor;
                                 box-sizing: border-box;
                                 margin: 6px 6px 0 0;
+                                position: relative;
 
-                                &__container {
-                                    height: 225px;
+                                @include mq() {
+                                    margin-right: 0;
+                                    width: 49%;
+                                }
+
+                                &__mask {
                                     background-color: $contactColor;
                                     opacity: 0.75;
+                                    width: 100%;
+                                    height: 100%;
+                                    position: absolute;
+                                }
+
+                                .contents__box {
+                                    color: #fff;
+                                    text-align: center;
+                                    line-height: 25px;
+                                    height: 225px;
+                                    position: relative;
+
+                                    &__title {
+                                        font-size: 22px;
+                                        padding-top: 7px;
+                                        position: relative;
+
+                                        &:after {
+                                            content: '';
+                                            border: 6px solid transparent;
+                                            border-left-color: #fff;
+                                            position: absolute;
+                                            top: 14px;
+                                            right: 0;
+                                        }
+                                    }
+
+                                    &__subtitle {
+                                        font-size: 16px;
+                                    }
                                 }
                             }
 
@@ -233,16 +515,51 @@ body {
                                 border: 5px solid $businessColor;
                                 box-sizing: border-box;
                                 margin-top: 6px;
+                                position: relative;
 
-                                &__container {
-                                    height: 225px;
+                                @include mq() {
+                                    width: 100%;
+                                }
+
+                                &__mask {
                                     background-color: $businessColor;
                                     opacity: 0.75;
+                                    width: 100%;
+                                    height: 100%;
+                                    position: absolute;
+                                }
+
+                                .contents__box {
+                                    color: #fff;
+                                    text-align: center;
+                                    line-height: 25px;
+                                    height: 225px;
+                                    position: relative;
+
+                                    &__title {
+                                        font-size: 22px;
+                                        padding-top: 7px;
+                                        position: relative;
+
+                                        &:after {
+                                            content: '';
+                                            border: 6px solid transparent;
+                                            border-left-color: #fff;
+                                            position: absolute;
+                                            top: 14px;
+                                            right: 0;
+                                        }
+                                    }
+
+                                    &__subtitle {
+                                        font-size: 16px;
+                                    }
                                 }
                             }
                         }
                     }
                 }
+
                 .intro {
                     display: flex;
                     justify-content: center;
@@ -250,21 +567,67 @@ body {
                     flex-flow: column;
                     margin: 52px auto 0;
                     width: 850px;
+
+                    @include mq() {
+                        justify-content: flex-start;
+                        padding: 0 2%;
+                        box-sizing: border-box;
+                        width: 100%;
+                    }
                     
                     &__title {
                         display: block;
                         text-align: center;
+                        color: #4d4d4d;
+                        line-height: 48px;
                         font-size: 30px;
                         border-bottom: 2px dashed #6BC04B;
-                        width: 850px;
+                        width: 100%;
                     }
 
                     &__works {
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
                         margin-top: 17px;
                         height: 223px;
-                        width: 850px;
-                        border: 5px solid #ea6cb0;
+                        border: 5px solid $introColor;
                         box-sizing: border-box;
+
+                        @include mq() {
+                            justify-content: flex-start;
+                            flex-flow: column;
+                            width: 100%;
+                            height: auto;
+                        }
+
+                        & > li {
+                            height: 213px;
+                            border-right: 2px solid $introColor;
+                            text-align: center;
+                            line-height: 28px;
+
+                            @include mq() {
+                                width: 100%;
+                                border-right: none;
+                                border-bottom: 2px solid $introColor;
+                            }
+
+                            &:last-child {
+                                border-right: none;
+                            }
+
+                            .works__field {
+                                color: $introColor;
+                                font-size: 25px;
+                                margin-top: 20px;
+                            }
+
+                            .works__text {
+                                color: #666;
+                                font-size: 16px;
+                            }
+                        }
                     }
                 }
 
@@ -274,20 +637,39 @@ body {
                     align-items: center;
                     flex-flow: column;
                     margin: 52px auto 0;
+                    width: 100%;
+
+                    @include mq() {
+                        padding: 0 2%;
+                    }
 
                     &__title {
                         display: block;
                         text-align: center;
+                        color: #4d4d4d;
                         font-size: 30px;
+                        line-height: 48px;
                         border-bottom: 2px dashed #6bc04b;
-                        width: 850px;
+                        width: 100%;
                     }
 
                     &__detail {
+                        color: #4d4d4d;
+                        font-size: 14px;
+                        text-align: left;
                         padding: 18px;
                         border-bottom: 2px dotted #666;
                         box-sizing: border-box;
-                        width: 850px;
+                        width: 100%;
+
+                        @include mq() {
+                            display: flex;
+                            flex-flow: column;
+                        }
+
+                        &__margin {
+                            margin-left: 35px;
+                        }
                     }
                 }
             }
@@ -301,25 +683,111 @@ body {
         flex-flow: column;
         margin: 85px auto 0;
 
+        .footer__img {
+            background-image: url('../../img/foot-photo.png');
+            background-repeat: no-repeat;
+            background-position: center;
+            width: 100%;
+            height: 67px;
+        }
+
         .footer__navigation {
             display: flex;
             justify-content: center;
             align-items: center;
             padding: 40px;
 
+            @include mq() {
+                flex-flow: wrap;
+                padding: 0;
+                width: 100%;
+            }
+
             & > li {
                 margin: 0 30px 0;
+                position: relative;
+                cursor: pointer;
+                
+                @include mq() {
+                    margin: auto;
+                    width: 50%;
+                    background-color: #f2f1ef;
+                    white-space: nowrap;
+                    text-align: center;
+                    padding: 10px 0;
+                    border: 1px solid #fff;
+                    box-sizing: border-box;
+                    font-size: 15px;
+                }
+
+                &:before {
+                    content: '';
+                    border: 7px solid transparent;
+                    border-left-color: $introColor;
+                    position: absolute;
+                    top: 1px;
+                    left: -14px;
+
+                    @include mq() {
+                        display: none;
+                    }
+                }
             }
         }
 
         .copyright {
+            color: #fff;
             background-color: #EA6CB0;
             padding: 5px 0;
             width: 100%;
 
             &__text {
+                font-size: 12px;
+                line-height: 1.5em;
+                height: 18px;
                 display: block;
                 text-align: center;
+            }
+        }
+
+        .sp__entry {
+            display: none;
+
+            @include mq() {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                position: fixed;
+                bottom: 0;
+                width: 100%;
+                background: rgba(0,0,0,0.7);
+                padding: 10px;
+                font-size: 24px;
+
+                &__button {
+                    width: 202px;
+                    background: $subBrandColor;
+                    border-radius: 5px;
+                    box-shadow: 3px 3px $brandColor;
+                    margin-bottom: 3px;
+                    width: 80%;
+
+                    &__text {
+                        padding: 10px;
+                        text-align: center;
+                        color: #fff;
+                        position: relative;
+                        
+                        &:after {
+                            content: '';
+                            border: 6px solid transparent;
+                            border-left-color: #fff;
+                            position: absolute;
+                            top: 16px;
+                            right: 45px;
+                        }
+                    }
+                }
             }
         }
     }
@@ -334,5 +802,6 @@ img {
 }
 
 a {
+    color: #666;
     text-decoration: none;
 }
