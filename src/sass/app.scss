@@ -674,6 +674,49 @@ body {
                 }
             }
         }
+
+        .table {
+            width: 100%;
+            margin-top: 40px;
+            border-top: 1px solid #A7A3A4;
+            border-bottom: 1px solid #A7A3A4;
+
+            @include mq() {
+                font-size: 12px;
+            }
+
+            &__data {
+                border-bottom: 1px solid #ccc;
+
+                &:last-child {
+                    border-bottom: 1px solid #A7A3A4;
+                }
+
+                @include mq(){
+                    display: flex;
+                    flex-flow: column;
+                }
+                
+                &__title {
+                    width: 30%;
+                    background-color: #FEE9F3;
+                    padding: 20px;
+
+                    @include mq() {
+                        width: 100%;
+                    }
+                }
+
+                &__detail {
+                    width: 70%;
+                    padding: 20px;
+                    
+                    @include mq() {
+                        width: 100%;
+                    }
+                }
+            }
+        }
     }
 
     footer {
