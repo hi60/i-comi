@@ -1,3 +1,7 @@
+<%
+    const path = 'common';
+%>
+
 <!DOCTYPE html>
 <html lang="ja">
 <head>
@@ -5,17 +9,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>アイコミ | Just another WordPress site</title>
-    <link rel="stylesheet" href="../css/reset.css">
-    <link rel="stylesheet" href="../dist/css/app.css">
+    <link rel="stylesheet" href="/assets/css/app.css">
 </head>
 <body>
     <div class="wrapper">
         <div class="page__container">
-            <%- include('common/_side') %>
+            <%- include(`${path}/_side`) %>
             <main>
                 <section class="contents">
                     <div class="contents__top">
-                        <img src="img/top-photo.png" alt="">
+                        <img src="/assets/img/top-photo.png" alt="">
                     </div>
                     <div class="contents__link">
                         <div class="contents__link__container">
@@ -34,7 +37,7 @@
                                 <div class="guide__mask"></div>
                                 <a href="">
                                     <div class="contents__box">
-                                        <img src="img/guide-logo.png" alt="">
+                                        <img src="/assets/img/guide-logo.png" alt="">
                                         <p class="contents__box__title">会場案内</p>
                                         <p class="contents__box__subtitle">Venue Guide</p>
                                     </div>
@@ -44,7 +47,7 @@
                                 <div class="company__mask"></div>
                                 <a href="">
                                     <div class="contents__box">
-                                        <img src="img/company-logo.png" alt="">
+                                        <img src="/assets/img/company-logo.png" alt="">
                                         <p class="contents__box__title">会社概要</p>
                                         <p class="contents__box__subtitle">Company</p>
                                     </div>
@@ -54,7 +57,7 @@
                                 <div class="reason__mask"></div>
                                 <a href="">
                                     <div class="contents__box">
-                                        <img src="img/reason-logo.png" alt="">
+                                        <img src="/assets/img/reason-logo.png" alt="">
                                         <p class="contents__box__title">選ばれる理由</p>
                                         <p class="contents__box__subtitle">Reason</p>
                                     </div>
@@ -64,7 +67,7 @@
                                 <div class="contact__mask">
                                     <a href="">
                                         <div class="contents__box">
-                                            <img src="img/contact-logo.png" alt="">
+                                            <img src="/assets/img/contact-logo.png" alt="">
                                             <p class="contents__box__title">お問い合わせ</p>
                                             <p class="contents__box__subtitle">Contact</p>
                                         </div>
@@ -75,7 +78,7 @@
                                 <div class="business__mask"></div>
                                 <a href="">
                                     <div class="contents__box">
-                                        <img src="img/business-logo.png" alt="">
+                                        <img src="/assets/img/business-logo.png" alt="">
                                         <p class="contents__box__title">事業内容</p>
                                         <p class="contents__box__subtitle">Business</p>
                                     </div>
@@ -90,22 +93,22 @@
                         <li>
                             <p class="works__field">量販店</p>
                             <p class="works__text">での就職・転職を目指す方</p>
-                            <img src="img/intro-icon1.png" alt="">
+                            <img src="/assets/img/intro-icon1.png" alt="">
                         </li>
                         <li>
                             <p class="works__field">販売促進</p>
                             <p class="works__text">での就職・転職を目指す方</p>
-                            <img src="img/intro-icon2.png" alt="">
+                            <img src="/assets/img/intro-icon2.png" alt="">
                         </li>
                         <li>
                             <p class="works__field">コールセンター</p>
                             <p class="works__text">での就職・転職を目指す方</p>
-                            <img src="img/intro-icon3.png" alt="">
+                            <img src="/assets/img/intro-icon3.png" alt="">
                         </li>
                         <li>
                             <p class="works__field">コンパニオン</p>
                             <p class="works__text">での就職・転職を目指す方</p>
-                            <img src="img/intro-icon4.png" alt="">
+                            <img src="/assets/img/intro-icon4.png" alt="">
                         </li>
                     </ul>
                 </section>
@@ -120,8 +123,8 @@
             </main>
         </div>
     </div>
-    <%- include('common/_footer') %>
+    <%- include(`${path}/_footer`) %>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
-    <script src="js/script.js"></script>
+    <script src="/assets/js/script.js"></script>
 </body>
 </html>

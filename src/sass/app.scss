@@ -1,3 +1,4 @@
+@import './reset';
 @import './variable';
 
 @mixin mq() {
@@ -7,7 +8,7 @@
 }
 
 body {
-    background-image: url('../../img/icomme-bg.png');
+    background-image: url('/assets/img/icomme-bg.png');
     background-repeat: repeat-x;
     border-top: 5px solid $subBrandColor;
 
@@ -248,7 +249,7 @@ body {
                             margin-top: 14px;
 
                             .entry {
-                                background-image: url("../../img/entry-logo.png");
+                                background-image: url("/assets/img/entry-logo.png");
                                 background-repeat: no-repeat;
                                 background-position: right 9px top 12px;
                                 width: 422px;
@@ -292,7 +293,7 @@ body {
                                     &__style {
                                         display: block;
                                         text-align: center;
-                                        background-image: url("../../img/entry-minlog.png");
+                                        background-image: url("/assets/img/entry-minlog.png");
                                         background-repeat: no-repeat;
                                         background-position: 10px 50%;
                                         font-size: 19px;
@@ -310,7 +311,7 @@ body {
 
                             .guide {
                                 width: 208px;
-                                background-image: url("../../img/guide-bg.png");
+                                background-image: url("/assets/img/guide-bg.png");
                                 background-repeat: no-repeat;
                                 border: 5px solid $guideColor;
                                 box-sizing: border-box;
@@ -360,7 +361,7 @@ body {
 
                             .company {
                                 width: 208px;
-                                background-image: url("../../img/company-bg.png");
+                                background-image: url("/assets/img/company-bg.png");
                                 background-repeat: no-repeat;
                                 border: 5px solid $companyColor;
                                 box-sizing: border-box;
@@ -410,7 +411,7 @@ body {
                             .reason {
                                 width: 208px;
                                 height: 235px;
-                                background-image: url("../../img/reason-bg.png");
+                                background-image: url("/assets/img/reason-bg.png");
                                 background-repeat: no-repeat;
                                 border: 5px solid $reasonColor;
                                 box-sizing: border-box;
@@ -460,7 +461,7 @@ body {
 
                             .contact {
                                 width: 208px;
-                                background-image: url("../../img/contact-bg.png");
+                                background-image: url("/assets/img/contact-bg.png");
                                 background-repeat: no-repeat;
                                 border: 5px solid $contactColor;
                                 box-sizing: border-box;
@@ -510,7 +511,7 @@ body {
 
                             .business {
                                 width: 422px;
-                                background-image: url("../../img/business-bg.png");
+                                background-image: url("/assets/img/business-bg.png");
                                 background-repeat: no-repeat;
                                 border: 5px solid $businessColor;
                                 box-sizing: border-box;
@@ -717,6 +718,36 @@ body {
                 }
             }
         }
+
+        .guide__picture {
+            margin-top: 40px;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            @include mq() {
+                flex-flow: column;
+
+                & > li {
+                    margin-bottom: 20px;
+                    
+                    &:last-child {
+                        margin-bottom: 0;
+                    }
+                }
+            }
+
+            &__size {
+                width: 250px;
+                height: 166px;
+            }
+        }
+
+        .location {
+            margin-top: 80px;
+            width: 100%;
+        }
     }
 
     footer {
@@ -727,7 +758,7 @@ body {
         margin: 85px auto 0;
 
         .footer__img {
-            background-image: url('../../img/foot-photo.png');
+            background-image: url('/assets/img/foot-photo.png');
             background-repeat: no-repeat;
             background-position: center;
             width: 100%;

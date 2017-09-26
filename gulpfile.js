@@ -2,11 +2,13 @@ var gulp = require('gulp');
 var sass = require('gulp-sass');
 var ejs  = require('gulp-ejs');
 var rename = require('gulp-rename');
+var browserSync = require('browser-sync');
+var reload = browserSync.reload;
 
 gulp.task('sass', function() {
     return gulp.src(['./src/sass/**/*.scss'])
         .pipe(sass())
-        .pipe(gulp.dest('./dist/css'));
+        .pipe(gulp.dest('./htdocs/assets/css'));
 });
 
 gulp.task('ejs', function() {
@@ -16,7 +18,18 @@ gulp.task('ejs', function() {
         .pipe(gulp.dest('./htdocs'));
 });
 
-gulp.task('default', ['sass', 'ejs'], function() {
-    gulp.watch('./src/sass/**/*.scss', ['sass']);
-    gulp.watch('./src/ejs/**/*.ejs', ['ejs']);
+gulp.task('browser-sync', function() {
+    return browserSync.init({
+        server: {
+            baseDir: 'htdocs',
+            index: 'index.html'
+        },
+        open: 'external',
+        port: 2000
+    });
+});
+
+gulp.task('default', ['sass', 'ejs', 'browser-sync'], function() {
+    gulp.watch('./src/sass/**/*.scss', ['sass']).on('change', reload);
+    gulp.watch('./src/ejs/**/*.ejs', ['ejs']).on('change', reload);
 });

@@ -1,3 +1,7 @@
+<%
+    const path = '../common';
+%>
+
 <!DOCTYPE html>
 <html lang="ja">
 <head>
@@ -5,16 +9,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>アイコミ | Just another WordPress site</title>
-    <link rel="stylesheet" href="../../css/reset.css">
-    <link rel="stylesheet" href="../../dist/css/app.css">
+    <link rel="stylesheet" href="/assets/css/app.css">
 </head>
 <body>
     <div class="wrapper">
         <div class="page__container">
-            <%- include('../common/_side') %>
+            <%- include(`${path}/_side`) %>
             <main>
                     <div class="outline__image">
-                            <img src="../../img/company-top.png" alt="">
+                        <img src="/assets/img/company-top.png" alt="">
                     </div>
                     <table class="table">
                         <tr class="table__data">
@@ -61,8 +64,8 @@
             </main>
         </div>
     </div>
-    <%- include('../common/_footer') %>
+    <%- include(`${path}/_footer`) %>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
-    <script src="js/script.js"></script>
+    <script src="/assets/js/script.js"></script>
 </body>
 </html>
